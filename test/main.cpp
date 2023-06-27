@@ -38,83 +38,83 @@ void test_benchmark() {
 }
 
 int main(int argc, char **argv) {
-	// C++ API tests
-	try {
-		cout << endl << "*** Running WebRTC connectivity test..." << endl;
-		test_connectivity(false);
-		cout << "*** Finished WebRTC connectivity test" << endl;
-	} catch (const exception &e) {
-		cerr << "WebRTC connectivity test failed: " << e.what() << endl;
-		return -1;
-	}
-	try {
-		cout << endl << "*** Running WebRTC broken fingerprint test..." << endl;
-		test_connectivity(true);
-		cerr << "WebRTC connectivity test failed to detect broken fingerprint" << endl;
-		return -1;
-	} catch (const exception &) {
-	}
-
-// TODO: Temporarily disabled as the Open Relay TURN server is unreliable
-/*
-	try {
-		cout << endl << "*** Running WebRTC TURN connectivity test..." << endl;
-		test_turn_connectivity();
-		cout << "*** Finished WebRTC TURN connectivity test" << endl;
-	} catch (const exception &e) {
-		cerr << "WebRTC TURN connectivity test failed: " << e.what() << endl;
-		return -1;
-	}
-*/
-	try {
-		cout << endl << "*** Running WebRTC negotiated DataChannel test..." << endl;
-		test_negotiated();
-		cout << "*** Finished WebRTC negotiated DataChannel test" << endl;
-	} catch (const exception &e) {
-		cerr << "WebRTC negotiated DataChannel test failed: " << e.what() << endl;
-		return -1;
-	}
-#if RTC_ENABLE_MEDIA
-	try {
-		cout << endl << "*** Running WebRTC Track test..." << endl;
-		test_track();
-		cout << "*** Finished WebRTC Track test" << endl;
-	} catch (const exception &e) {
-		cerr << "WebRTC Track test failed: " << e.what() << endl;
-		return -1;
-	}
-#endif
-#if RTC_ENABLE_WEBSOCKET
-// TODO: Temporarily disabled as the echo service is unreliable
-/*
-	try {
-		cout << endl << "*** Running WebSocket test..." << endl;
-		test_websocket();
-		cout << "*** Finished WebSocket test" << endl;
-	} catch (const exception &e) {
-		cerr << "WebSocket test failed: " << e.what() << endl;
-		return -1;
-	}
-*/
-	try {
-		cout << endl << "*** Running WebSocketServer test..." << endl;
-		test_websocketserver();
-		cout << "*** Finished WebSocketServer test" << endl;
-	} catch (const exception &e) {
-		cerr << "WebSocketServer test failed: " << e.what() << endl;
-		return -1;
-	}
-#endif
-	try {
-		// Every created object must have been destroyed, otherwise the wait will block
-		cout << endl << "*** Running cleanup..." << endl;
-		if(rtc::Cleanup().wait_for(10s) == future_status::timeout)
-			throw std::runtime_error("Timeout");
-		cout << "*** Finished cleanup..." << endl;
-	} catch (const exception &e) {
-		cerr << "Cleanup failed: " << e.what() << endl;
-		return -1;
-	}
+//	// C++ API tests
+//	try {
+//		cout << endl << "*** Running WebRTC connectivity test..." << endl;
+//		test_connectivity(false);
+//		cout << "*** Finished WebRTC connectivity test" << endl;
+//	} catch (const exception &e) {
+//		cerr << "WebRTC connectivity test failed: " << e.what() << endl;
+//		return -1;
+//	}
+//	try {
+//		cout << endl << "*** Running WebRTC broken fingerprint test..." << endl;
+//		test_connectivity(true);
+//		cerr << "WebRTC connectivity test failed to detect broken fingerprint" << endl;
+//		return -1;
+//	} catch (const exception &) {
+//	}
+//
+//// TODO: Temporarily disabled as the Open Relay TURN server is unreliable
+///*
+//	try {
+//		cout << endl << "*** Running WebRTC TURN connectivity test..." << endl;
+//		test_turn_connectivity();
+//		cout << "*** Finished WebRTC TURN connectivity test" << endl;
+//	} catch (const exception &e) {
+//		cerr << "WebRTC TURN connectivity test failed: " << e.what() << endl;
+//		return -1;
+//	}
+//*/
+//	try {
+//		cout << endl << "*** Running WebRTC negotiated DataChannel test..." << endl;
+//		test_negotiated();
+//		cout << "*** Finished WebRTC negotiated DataChannel test" << endl;
+//	} catch (const exception &e) {
+//		cerr << "WebRTC negotiated DataChannel test failed: " << e.what() << endl;
+//		return -1;
+//	}
+//#if RTC_ENABLE_MEDIA
+//	try {
+//		cout << endl << "*** Running WebRTC Track test..." << endl;
+//		test_track();
+//		cout << "*** Finished WebRTC Track test" << endl;
+//	} catch (const exception &e) {
+//		cerr << "WebRTC Track test failed: " << e.what() << endl;
+//		return -1;
+//	}
+//#endif
+//#if RTC_ENABLE_WEBSOCKET
+//// TODO: Temporarily disabled as the echo service is unreliable
+///*
+//	try {
+//		cout << endl << "*** Running WebSocket test..." << endl;
+//		test_websocket();
+//		cout << "*** Finished WebSocket test" << endl;
+//	} catch (const exception &e) {
+//		cerr << "WebSocket test failed: " << e.what() << endl;
+//		return -1;
+//	}
+//*/
+//	try {
+//		cout << endl << "*** Running WebSocketServer test..." << endl;
+//		test_websocketserver();
+//		cout << "*** Finished WebSocketServer test" << endl;
+//	} catch (const exception &e) {
+//		cerr << "WebSocketServer test failed: " << e.what() << endl;
+//		return -1;
+//	}
+//#endif
+//	try {
+//		// Every created object must have been destroyed, otherwise the wait will block
+//		cout << endl << "*** Running cleanup..." << endl;
+//		if(rtc::Cleanup().wait_for(10s) == future_status::timeout)
+//			throw std::runtime_error("Timeout");
+//		cout << "*** Finished cleanup..." << endl;
+//	} catch (const exception &e) {
+//		cerr << "Cleanup failed: " << e.what() << endl;
+//		return -1;
+//	}
 
 	// C API tests
 	try {

@@ -784,7 +784,7 @@ Description::Application::Application(const string &mline, string mid)
     : Entry(mline, std::move(mid), Direction::SendRecv) {}
 
 string Description::Application::description() const {
-	return Entry::description() + " webrtc-datachannel";
+	return Entry::description() + " gznscy";
 }
 
 Description::Application Description::Application::reciprocate() const {

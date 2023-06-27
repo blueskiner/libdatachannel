@@ -57,7 +57,7 @@ Could NOT find OpenSSL, try to set the path to OpenSSL root folder in the system
 For example:
 
 ```bash
-$ cmake -B build -G Xcode -DUSE_GNUTLS=0 -DUSE_NICE=0 -DOPENSSL_ROOT_DIR=/usr/local/Cellar/openssl\@1.1/1.1.1h/
+$ cmake -B build -G Xcode -DUSE_GNUTLS=0 -DUSE_NICE=0 -DOPENSSL_ROOT_DIR=/home/mlz/openssl-1.1.1g/
 ```
 
 ### Microsoft Windows with MinGW cross-compilation

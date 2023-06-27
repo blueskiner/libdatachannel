@@ -26,7 +26,7 @@ void test_connectivity(bool signal_wrong_fingerprint) {
 
 	Configuration config1;
 	// STUN server example (not necessary to connect locally)
-	config1.iceServers.emplace_back("stun:stun.l.google.com:19302");
+	config1.iceServers.emplace_back("stun:stun.gznscy.com:3478");
 	// Custom MTU example
 	config1.mtu = 1500;
 	// Custom max message size
@@ -36,7 +36,7 @@ void test_connectivity(bool signal_wrong_fingerprint) {
 
 	Configuration config2;
 	// STUN server example (not necessary to connect locally)
-	config2.iceServers.emplace_back("stun:stun.l.google.com:19302");
+	config2.iceServers.emplace_back("stun:stun.gznscy.com:3478");
 	// Custom MTU example
 	config2.mtu = 1500;
 	// Custom max message size

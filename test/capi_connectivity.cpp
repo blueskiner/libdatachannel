@@ -195,7 +195,7 @@ int test_capi_connectivity_main() {
 	}
 
 	// STUN server example (not necessary to connect locally)
-	const char *iceServers[1] = {"stun:stun.l.google.com:19302"};
+	const char *iceServers[1] = {"stun:stun.gznscy.com:3478"};
 
 	// Create peer 1
 	rtcConfiguration config1;
